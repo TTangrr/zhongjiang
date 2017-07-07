@@ -1,0 +1,74 @@
+{include file="publics/header" /}
+<div class="centBox">
+	<div class="neiye clearfix">
+    	<div class="neiyeL">
+        	<div class="banL noel">
+       	 		 <div class="yuyue">
+       		  		<p><a href="#"><img src="__STATIC__/index/text/1.gif" width="232" height="213" alt="" />
+             		 中江瓜蒌</a></p>
+              		<p><a href="{:url('cooperation/product')}" class="yuyue_a"></a></p>
+          		</div>
+      		</div>
+            <div class="hezuo">
+           	<div class="hezuo_top">推荐合作单位</div>
+                <div class="hezuo_text">
+                    {volist name="$hzs" id="vo" }
+                    <li><a href="#"><img src="{$vo.logo}" width="206" height="60" alt="" /></a></li>
+                    {/volist}
+                </div>
+          </div>
+        </div>
+        <div class="neiyeR">
+        	<div class="neiBT">
+            	<span class="mianT_span">行业信息 | INFORMATION </span>
+            </div>
+            <div class="neiText">
+            	<div class="neiIfino">
+                	<ul>
+                    	<li class="l"><a href="#" class="xuanz">最新信息</a>|</li>
+                        <li class="l"><a href="#">行业信息</a>|</li>
+                        <li class="l"><a href="#">展会信息</a>|</li>
+                        <li class="l"><a href="#">市场信息</a></li>
+                    </ul>
+                </div>
+                <div class="haide">
+                	<div class="haide_te">
+                        {volist name="$index" id="vo"}
+                    	<a href="#"><img src="{$vo.logo}" width="208" height="142" alt="" /></a>
+                    	<h1><a href="#" class="haide_h1">{$vo.title}</a></h1>
+                      {$vo.content}
+                        {/volist}
+                    </div>
+                    <div class="nawsTe">
+                    	<ul>
+                        	<li><span>2013-09-21</span><a href="#">&middot;求购玉米小麦大豆高粱</a> </li>
+                            <li><span>2013-09-21</span><a href="#">&middot;求购玉米小麦大豆高粱</a> </li>
+                            <li><span>2013-09-21</span><a href="#">&middot;求购玉米小麦大豆高粱</a> </li>
+                            <li><span>2013-09-21</span><a href="#">&middot;求购玉米小麦大豆高粱</a> </li>
+                            <li><span>2013-09-21</span><a href="#">&middot;求购玉米小麦大豆高粱</a> </li>
+                            <li><span>2013-09-21</span><a href="#">&middot;求购玉米小麦大豆高粱</a> </li>
+                            <li><span>2013-09-21</span><a href="#">&middot;求购玉米小麦大豆高粱</a> </li>
+                            <li><span>2013-09-21</span><a href="#">&middot;求购玉米小麦大豆高粱</a> </li>
+                            <li><span>2013-09-21</span><a href="#">&middot;求购玉米小麦大豆高粱</a> </li>
+                        </ul>
+                    </div>
+                    <div class="feiye">
+                    	<ul>
+                        	<li><input type="submit" value="确定" class="feiye_ban" />
+                            <li>到第<input name="" type="text" class="feiye_ingp" />页</li>
+                            <li><a href="#">下一页</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#" class="xuanz">1</a></li>
+                        	<li><a href="#" class="feiye_hs">上一页</a></li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+{include file="publics/footer" /}

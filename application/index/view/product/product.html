@@ -1,0 +1,137 @@
+{include file="publics/header" /}
+<div class="centBox">
+    <div class="neiye clearfix">
+        <div class="neiyeL">
+            <div class="banL noel">
+                <div class="lanmu">
+                    <ul>
+                        <li><a href="{:url('cooperation/introduce')}">合作社介绍</a></li>
+                        <li><a href="{:url('cooperation/product')}">产品介绍</a></li>
+                        <li><a href="{:url('cooperation/technical')}" class="xuanz">技术支持</a></li>
+                        <li><a href="{:url('cooperation/industry')}">行业前景</a></li>
+                        <li><a href="{:url('cooperation/story')}">致富故事</a></li>
+                        <li><a href="{:url('cooperation/production')}">生产基地</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="dianhua">
+                <div class="dianhua_top">联系电话</div>
+                <div class="dianhua_text">
+                    联  系  人：陈波 （总裁） <br />
+                    电       话 ：86 0838 7102727999999999999999999999<br />
+                    移动电话 ：	138-8180-1576<br />
+                    传       真 ：86 0838 7102771<br />
+                    地       址 ：	中国 四川 德阳市四川省德阳市中江县双龙镇                </div>
+            </div>
+        </div>
+        <div class="neiyeR">
+            <div class="neiBT">
+                <span class="mianT_span">产品介绍 | PRODUCTS</span>
+            </div>
+            <div class="product">
+                <div class="product_top">
+                    <div class="product_name">
+                        <img src="{$shangp.logo}" width="396" height="277" alt="" />
+                    </div>
+                    <div class="product_info">
+                        <p class="prod_bt">{$shangp.title}</p>
+                        <p>产品类别：	{$shangp.p_category}</p>
+                        <p>产品规格：	{$shangp.p_guige}</p>
+                        <p>产品原产地：{$shangp.p_chandi}</p>
+                        <p>产品价格：	{$shangp.price}</p>
+                        <p>上架时间：{$shangp.create_time}</p>
+                        <form action="" method="get">
+                            <?php echo(session('username'))?>
+                        <p class=" prod_pad">
+                            <span class="l">购买数量：</span>
+                            <a href="#" id="jia" name="jia" class="prod_jia"></a>
+                            <input name=""  type="text" class="prod_tetx" value="{$shangp.count}" />
+                            <a href="#" id="jian" class="prod_jian"></a>
+                        </p>
+                        </form>
+                        <p><a href="{:url('dingdan/dingdan',['id'=>$vo['id']])}" class="qiang_click prod_dg"></a></p>
+                        <input type="hidden" id="t" name="t" value="{$shangp.id}" />
+                    </div>
+                </div>
+                <div class="proTd">
+                    <div class="proTd_top">
+                        产品特点
+                    </div>
+                    <div class="proTd_yte">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__STATIC__/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+<script>
+   //
+    $('#jian').click(function(){
+
+        var url ="{:url('product/product')}";
+		var total_count="{$shangp.total_count}";
+        //alert(total_count);
+        var count= $('.prod_tetx').val();
+       // alert(count);
+        count++;
+       // alert(count);
+		if(count<=total_count){
+
+            var id="{$shangp.id}";
+            var postDdata = {
+                'id': id,
+                'count': count,
+
+            }
+                $.get(url,postDdata,function(result){
+                        //alert(result.data)
+                        $(".prod_tetx").val(result.data);
+
+
+                    },'json');
+
+		}else{
+            alert('asdsdasad')
+        }
+
+
+
+  });
+  
+     $('#jia').click(function(){
+      //alert("sdfgdsg");
+         var count= $('.prod_tetx').val();
+
+        // alert(count);
+        var url ="{:url('product/product')}";
+
+
+		if(count<1){
+			
+			alert("请填写正确数量")
+
+		}else{
+
+			count=count-1;
+          // alert(count);
+			var id="{$shangp.id}";
+			//alert(id)
+			var postDdata ={
+				'id':id,
+				'count':count,
+        }
+		//alert(postDdata)
+		 $.get(url,postDdata,function(result){
+			//alert(result.data)
+			$(".prod_tetx").val(result.data);
+			
+		 
+		 },'json');
+	}
+  });
+  
+</script>
+{include file="publics/footer" /}
